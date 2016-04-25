@@ -118,7 +118,7 @@ const ListItem = React.createClass({
     /**
      * Called when a touch tap event occures on the component.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * This is the block element that contains the primary text.
@@ -377,7 +377,7 @@ const ListItem = React.createClass({
 
     //Stop the event from bubbling up to the list-item
     e.stopPropagation();
-    if (iconButton && iconButton.props.onTouchTap) iconButton.props.onTouchTap(e);
+    if (iconButton && iconButton.props.onClick) iconButton.props.onClick(e);
   },
 
   _handleTouchStart(e) {
@@ -416,7 +416,7 @@ const ListItem = React.createClass({
       onMouseLeave,
       onMouseEnter,
       onTouchStart,
-      onTouchTap,
+      onClick,
       rightAvatar,
       rightIcon,
       rightIconButton,
@@ -595,7 +595,7 @@ const ListItem = React.createClass({
         onKeyboardFocus: this._handleRightIconButtonKeyboardFocus,
         onMouseEnter: this._handleRightIconButtonMouseEnter,
         onMouseLeave: this._handleRightIconButtonMouseLeave,
-        onTouchTap: this._handleRightIconButtonTouchTap,
+        onClick: this._handleRightIconButtonTouchTap,
         onMouseDown: this._handleRightIconButtonMouseUp,
         onMouseUp: this._handleRightIconButtonMouseUp,
       };
@@ -605,7 +605,7 @@ const ListItem = React.createClass({
         rightIconButtonElement = this.state.open ?
           <IconButton><OpenIcon /></IconButton> :
           <IconButton><CloseIcon /></IconButton>;
-        rightIconButtonHandlers.onTouchTap = this._handleNestedListToggle;
+        rightIconButtonHandlers.onClick = this._handleNestedListToggle;
       }
 
       this._pushElement(
@@ -662,7 +662,7 @@ const ListItem = React.createClass({
               onMouseLeave={this._handleMouseLeave}
               onMouseEnter={this._handleMouseEnter}
               onTouchStart={this._handleTouchStart}
-              onTouchTap={primaryTogglesNestedList ? this._handleNestedListToggle : onTouchTap}
+              onClick={primaryTogglesNestedList ? this._handleNestedListToggle : onClick}
               ref="enhancedButton"
               style={this.mergeStyles(styles.root, style)}
             >

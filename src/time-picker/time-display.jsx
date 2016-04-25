@@ -147,14 +147,14 @@ const TimeDisplay = React.createClass({
         <div
           key="pm"
           style={this.prepareStyles(styles.clickable, affix === 'pm' ? {} : styles.inactive)}
-          onTouchTap={() => this.props.onSelectAffix('pm')}
+          onClick={() => this.props.onSelectAffix('pm')}
         >
           {"PM"}
         </div>,
         <div
           key="am"
           style={this.prepareStyles(styles.affixTop, styles.clickable, affix === 'am' ? {} : styles.inactive)}
-          onTouchTap={() => this.props.onSelectAffix('am')}
+          onClick={() => this.props.onSelectAffix('am')}
         >
           {"AM"}
         </div>,
@@ -169,14 +169,14 @@ const TimeDisplay = React.createClass({
             <div style={this.prepareStyles(styles.time)}>
               <span
                 style={this.prepareStyles(styles.clickable, mode === 'hour' ? {} : styles.inactive)}
-                onTouchTap={this.props.onSelectHour}
+                onClick={this.props.onSelectHour}
               >
                 {hour}
               </span>
               <span>:</span>
               <span
                 style={this.prepareStyles(styles.clickable, mode === 'minute' ? {} : styles.inactive)}
-                onTouchTap={this.props.onSelectMin}
+                onClick={this.props.onSelectMin}
               >
                 {min}
               </span>

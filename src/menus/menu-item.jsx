@@ -69,7 +69,7 @@ const MenuItem = React.createClass({
     /**
      * Fired when the element is touchTapped.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * This is the SvgIcon or FontIcon to be displayed on the right side.
@@ -163,13 +163,13 @@ const MenuItem = React.createClass({
 
   _cloneMenuItem(item) {
     return React.cloneElement(item, {
-      onTouchTap: (event) => {
+      onClick: (event) => {
         if (!item.props.menuItems) {
           this._onRequestClose();
         }
 
-        if (item.props.onTouchTap) {
-          item.props.onTouchTap(event);
+        if (item.props.onClick) {
+          item.props.onClick(event);
         }
       },
       onRequestClose: this._onRequestClose,
@@ -184,8 +184,8 @@ const MenuItem = React.createClass({
       anchorEl: ReactDOM.findDOMNode(this),
     });
 
-    if (this.props.onTouchTap) {
-      this.props.onTouchTap(event);
+    if (this.props.onClick) {
+      this.props.onClick(event);
     }
   },
 
@@ -296,7 +296,7 @@ const MenuItem = React.createClass({
           </Menu>
         </Popover>
       );
-      other.onTouchTap = this._onTouchTap;
+      other.onClick = this._onTouchTap;
     }
 
     return (

@@ -516,7 +516,7 @@ const LeftNav = React.createClass({
           className={overlayClassName}
           style={this.mergeStyles(styles.overlay, overlayStyle)}
           transitionEnabled={!this.state.swiping}
-          onTouchTap={this._onOverlayTouchTap}
+          onClick={this._onOverlayTouchTap}
         />
       );
     }

@@ -109,7 +109,7 @@ const DatePicker = React.createClass({
     /**
      * Called when touch tap event occurs on text-field.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * Called during render time of a given day. If this method returns
@@ -252,7 +252,7 @@ const DatePicker = React.createClass({
   },
 
   _handleInputTouchTap: function _handleInputTouchTap(event) {
-    if (this.props.onTouchTap) this.props.onTouchTap(event);
+    if (this.props.onClick) this.props.onClick(event);
 
     if (!this.props.disabled)
       setTimeout(() => {
@@ -292,7 +292,7 @@ const DatePicker = React.createClass({
       onDismiss,
       onFocus,
       onShow,
-      onTouchTap,
+      onClick,
       disableYearSelection,
       style,
       textFieldStyle,
@@ -309,7 +309,7 @@ const DatePicker = React.createClass({
           ref="input"
           value={this.state.date ? formatDate(this.state.date) : undefined}
           onFocus={this._handleInputFocus}
-          onTouchTap={this._handleInputTouchTap}
+          onClick={this._handleInputTouchTap}
         />
         <DatePickerDialog
           container={container}

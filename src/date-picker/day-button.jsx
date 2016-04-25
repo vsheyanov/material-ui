@@ -11,7 +11,7 @@ const DayButton = React.createClass({
     date: React.PropTypes.object,
     disabled: React.PropTypes.bool,
     onKeyboardFocus: React.PropTypes.func,
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
     selected: React.PropTypes.bool,
   },
 
@@ -68,7 +68,7 @@ const DayButton = React.createClass({
   },
 
   _handleTouchTap(e) {
-    if (!this.props.disabled && this.props.onTouchTap) this.props.onTouchTap(e, this.props.date);
+    if (!this.props.disabled && this.props.onClick) this.props.onClick(e, this.props.date);
   },
 
   _handleKeyboardFocus(e, keyboardFocused) {
@@ -80,7 +80,7 @@ const DayButton = React.createClass({
   render() {
     let {
       date,
-      onTouchTap,
+      onClick,
       selected,
       ...other,
     } = this.props;
@@ -141,7 +141,7 @@ const DayButton = React.createClass({
         disableTouchRipple={true}
         onMouseEnter={this._handleMouseEnter}
         onMouseLeave={this._handleMouseLeave}
-        onTouchTap={this._handleTouchTap}
+        onClick={this._handleTouchTap}
         onKeyboardFocus={this._handleKeyboardFocus}
       >
         <div style={this.prepareStyles(styles.buttonState)} />

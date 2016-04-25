@@ -242,13 +242,13 @@ const AppBar = React.createClass({
       // If not, just use it as a node.
       titleElement = typeof title === 'string' || title instanceof String ?
         <h1
-          onTouchTap={this._onTitleTouchTap}
+          onClick={this._onTitleTouchTap}
           style={this.prepareStyles(styles.title, styles.mainElement, titleStyle)}
         >
           {title}
         </h1> :
         <div
-          onTouchTap={this._onTitleTouchTap}
+          onClick={this._onTitleTouchTap}
           style={this.prepareStyles(styles.title, styles.mainElement, titleStyle)}
         >
           {title}
@@ -277,7 +277,7 @@ const AppBar = React.createClass({
             style={this.mergeStyles(styles.iconButton.style)}
             iconStyle={this.mergeStyles(styles.iconButton.iconStyle)}
             iconClassName={iconClassNameLeft}
-            onTouchTap={this._onLeftIconButtonTouchTap}
+            onClick={this._onLeftIconButtonTouchTap}
           >
               {child}
           </IconButton>
@@ -312,7 +312,7 @@ const AppBar = React.createClass({
           style={iconRightStyle}
           iconStyle={this.mergeStyles(styles.iconButton.iconStyle)}
           iconClassName={iconClassNameRight}
-          onTouchTap={this._onRightIconButtonTouchTap}
+          onClick={this._onRightIconButtonTouchTap}
         />
       );
     }

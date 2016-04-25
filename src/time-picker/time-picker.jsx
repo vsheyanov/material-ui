@@ -57,7 +57,7 @@ const TimePicker = React.createClass({
     /**
      * Callback for touch tap event.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * It's technically more correct to refer to
@@ -176,7 +176,7 @@ const TimePicker = React.createClass({
 
     this.openDialog();
 
-    if (this.props.onTouchTap) this.props.onTouchTap(e);
+    if (this.props.onClick) this.props.onClick(e);
   },
 
   render() {
@@ -184,7 +184,7 @@ const TimePicker = React.createClass({
       autoOk,
       format,
       onFocus,
-      onTouchTap,
+      onClick,
       onShow,
       onDismiss,
       style,
@@ -202,7 +202,7 @@ const TimePicker = React.createClass({
           ref="input"
           value={time === emptyTime ? null : this.formatTime(time)}
           onFocus={this._handleInputFocus}
-          onTouchTap={this._handleInputTouchTap}
+          onClick={this._handleInputTouchTap}
         />
         <TimePickerDialog
           ref="dialogWindow"

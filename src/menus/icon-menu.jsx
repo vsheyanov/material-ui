@@ -94,7 +94,7 @@ const IconMenu = React.createClass({
     /**
      * Fired when element is touch tapped.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * Controls whether the IconMenu is opened or not.
@@ -145,7 +145,7 @@ const IconMenu = React.createClass({
       onMouseLeave: () => {},
       onMouseEnter: () => {},
       onMouseUp: () => {},
-      onTouchTap: () => {},
+      onClick: () => {},
       onRequestChange: () => {},
       anchorOrigin: {
         vertical: 'top',
@@ -278,7 +278,7 @@ const IconMenu = React.createClass({
       onMouseLeave,
       onMouseEnter,
       onMouseUp,
-      onTouchTap,
+      onClick,
       menuStyle,
       style,
       targetOrigin,
@@ -304,9 +304,9 @@ const IconMenu = React.createClass({
     let iconButton = React.cloneElement(iconButtonElement, {
       onKeyboardFocus: this.props.onKeyboardFocus,
       iconStyle: this.mergeStyles(iconStyle, iconButtonElement.props.iconStyle),
-      onTouchTap: (e) => {
+      onClick: (e) => {
         this.open(Events.isKeyboard(e) ? 'keyboard' : 'iconTap', e);
-        if (iconButtonElement.props.onTouchTap) iconButtonElement.props.onTouchTap(e);
+        if (iconButtonElement.props.onClick) iconButtonElement.props.onClick(e);
       },
       ref: this.state.iconButtonRef,
     });
@@ -332,7 +332,7 @@ const IconMenu = React.createClass({
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
         onMouseUp={onMouseUp}
-        onTouchTap={onTouchTap}
+        onClick={onClick}
         style={this.prepareStyles(mergedRootStyles)}
       >
         {iconButton}

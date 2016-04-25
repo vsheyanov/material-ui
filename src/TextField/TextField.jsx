@@ -466,7 +466,7 @@ const TextField = React.createClass({
         htmlFor={inputId}
         shrink={this.state.hasValue || this.state.isFocused}
         disabled={disabled}
-        onTouchTap={this.focus}
+        onClick={this.focus}
       >
         {floatingLabelText}
       </TextFieldLabel>

@@ -384,12 +384,12 @@ const DropDownMenu = React.createClass({
           key={idx}
           primaryText={item[displayMember || 'text']}
           value={item[valueMember]}
-          onTouchTap={this._onMenuItemTouchTap.bind(this, idx, item)}
+          onClick={this._onMenuItemTouchTap.bind(this, idx, item)}
         />
       ))
       : React.Children.map(children, child => {
         const clone = React.cloneElement(child, {
-          onTouchTap: this._onMenuItemTouchTap.bind(this, index, child.props.value),
+          onClick: this._onMenuItemTouchTap.bind(this, index, child.props.value),
         }, child.props.children);
         index += 1;
         return clone;
@@ -407,7 +407,7 @@ const DropDownMenu = React.createClass({
         className={className}
         style={prepareStyles(muiTheme, mergeStyles(styles.root, open && styles.rootWhenOpen, style))}
       >
-        <ClearFix style={mergeStyles(styles.control)} onTouchTap={this._onControlTouchTap}>
+        <ClearFix style={mergeStyles(styles.control)} onClick={this._onControlTouchTap}>
           <div style={prepareStyles(muiTheme, mergeStyles(styles.label, open && styles.labelWhenOpen, labelStyle))}>
             {displayValue}
           </div>

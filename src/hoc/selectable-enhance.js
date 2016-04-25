@@ -66,10 +66,10 @@ export const SelectableContainerEnhance = (Component) => {
         this.keyIndex += 1;
 
         return React.cloneElement(child, {
-          onTouchTap: (e) => {
+          onClick: (e) => {
             this.handleItemTouchTap(e, child);
-            if (child.props.onTouchTap) {
-              child.props.onTouchTap(e);
+            if (child.props.onClick) {
+              child.props.onClick(e);
             }
           },
           key: this.keyIndex,

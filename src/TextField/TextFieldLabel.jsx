@@ -36,7 +36,7 @@ const propTypes = {
   /**
    * Callback function for when the label is selected via a touch tap.
    */
-  onTouchTap: React.PropTypes.func,
+  onClick: React.PropTypes.func,
 
   /**
    * Override the inline-styles of the root element.
@@ -59,7 +59,7 @@ const TextFieldLabel = (props) => {
     shrink,
     htmlFor,
     style,
-    onTouchTap,
+    onClick,
   } = props;
 
   const styles = {
@@ -84,7 +84,7 @@ const TextFieldLabel = (props) => {
       className={className}
       style={prepareStyles(muiTheme, mergeStyles(styles.root, style))}
       htmlFor={htmlFor}
-      onTouchTap={onTouchTap}
+      onClick={onClick}
     >
       {children}
     </label>

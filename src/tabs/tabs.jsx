@@ -224,7 +224,7 @@ const Tabs = React.createClass({
         selected: this._getSelected(tab, index),
         tabIndex: index,
         width: width + '%',
-        onTouchTap: this._handleTabTouchTap,
+        onClick: this._handleTabTouchTap,
       });
     });
 

@@ -239,11 +239,11 @@ const DialogInline = React.createClass({
     const props = {
       secondary: true,
       onClick: actionJSON.onClick,
-      onTouchTap: () => {
-        if (actionJSON.onTouchTap) {
-          actionJSON.onTouchTap.call(undefined);
+      onClick: () => {
+        if (actionJSON.onClick) {
+          actionJSON.onClick.call(undefined);
         }
-        if (!(actionJSON.onClick || actionJSON.onTouchTap)) {
+        if (!(actionJSON.onClick || actionJSON.onClick)) {
           this._requestClose(true);
         }
       },
@@ -457,7 +457,7 @@ const DialogInline = React.createClass({
           show={open}
           className={overlayClassName}
           style={styles.overlay}
-          onTouchTap={this._handleOverlayTouchTap}
+          onClick={this._handleOverlayTouchTap}
         />
       </div>
     );

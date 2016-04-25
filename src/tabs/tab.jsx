@@ -32,7 +32,7 @@ const Tab = React.createClass({
     /**
      * This property is overriden by the Tabs component.
      */
-    onTouchTap: React.PropTypes.func,
+    onClick: React.PropTypes.func,
 
     /**
      * Defines if the current tab is selected or not.
@@ -90,8 +90,8 @@ const Tab = React.createClass({
   },
 
   _handleTouchTap(event) {
-    if (this.props.onTouchTap) {
-      this.props.onTouchTap(this.props.value, event, this);
+    if (this.props.onClick) {
+      this.props.onClick(this.props.value, event, this);
     }
   },
 
@@ -99,7 +99,7 @@ const Tab = React.createClass({
     const {
       label,
       onActive,
-      onTouchTap,
+      onClick,
       selected,
       style,
       value,
@@ -148,7 +148,7 @@ const Tab = React.createClass({
         touchRippleColor={rippleColor}
         focusRippleOpacity={rippleOpacity}
         touchRippleOpacity={rippleOpacity}
-        onTouchTap={this._handleTouchTap}
+        onClick={this._handleTouchTap}
       >
         {iconElement}
         {label}

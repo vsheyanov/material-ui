@@ -123,7 +123,7 @@ const DropDownIcon = React.createClass({
 
     return (
       <div {...other} style={this.prepareStyles(styles.root, style)}>
-        <div onTouchTap={this._onControlClick}>
+        <div onClick={this._onControlClick}>
           <FontIcon
             className={iconClassName}
             style={iconStyle}
